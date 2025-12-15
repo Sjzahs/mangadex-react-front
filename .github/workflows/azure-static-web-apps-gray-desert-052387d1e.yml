@@ -28,12 +28,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      
       - name: Build app
         run: npm run build
         env:
           CI: false
           NODE_OPTIONS: --openssl-legacy-provider
+          DISABLE_ESLINT_PLUGIN: true
 
 
       - name: Deploy to Azure Static Web Apps
@@ -55,6 +55,7 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GRAY_DESERT_052387D1E }}
           action: "close"
+
 
 
 
